@@ -1,0 +1,39 @@
+.page{
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f0f4f8;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.carte{
+  width: 320px;
+  padding: 30px;
+  background: white;
+  text-align: center;
+  border-radius: 15px;
+  object-fit: cover;
+}
+.photo{
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  object-fit: 25px;
+}
+h1{
+  color: #1d4ed8;
+  font-size: 25px;
+
+}
+h2{
+  color: #333;
+
+}
+p{
+  color: #555;
+  text-align: left;
+  line-height: 1.5;
+}
+.bouton:hover{
+  background: #1e49af;
+}
