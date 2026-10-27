@@ -1,48 +1,107 @@
 
-import './App.css';
-import photo from './mm.jpeg';
+import Header from "./components/Header";
 
-    const etudiant = {
-        nom: "mariam saafi",
-        email:"saafimariam@gmail.com",
-        telephone:"28000000",
-        filiere:"genie logiciel et systemes d information ",
-        annee :"2ème année",
-        groupe :"GLSI B",
-        ville:"mahdia",
-    }
-function app(){
+import Navbar from "./components/Navbar";
 
-    return (
-        <div className="page">
-        <div className="carte">
-            <img src={photo} alt="photo etudiant" className='photo' />
-            <h1>Fiche etudiant</h1>
-            <p>
-                <strong>Nom :</strong> {etudiant.nom}
-            </p>
-            <p>
-                <strong>Email :</strong> {etudiant.email}
-            </p>
-            <p>
-                <strong>Telephone :</strong> {etudiant.telephone}
-            </p>
-            <p>
-                <strong>Filiere :</strong> {etudiant.filiere}
-            </p>
-            <p>
-                <strong>Annee :</strong> {etudiant.annee}
-            </p>
-            <p>
-                <strong>Groupe :</strong> {etudiant.groupe}
-            </p>
-            <p>
-                <strong>ville :</strong> {etudiant.ville}
-            </p>
-            <a className='bouton' href={`mailto:${etudiant.email}`}>contacter</a>
+import StudentCard from "./components/StudentCard";
+
+import Footer from "./components/Footer";
+
+import "./App.css";
+
+function App() {
+
+  const etudiants = [
+
+    {
+
+      prenom: "Slim",
+
+      nom: "Boubaker",
+
+      email: "slim@example.com",
+
+      telephone: "20111222",
+
+      filiere: "Génie logiciel",
+
+    },
+
+    {
+
+      prenom: "Sarra",
+
+      nom: "Trabelsi",
+
+      email: "sarra@example.com",
+
+      telephone: "22123456",
+
+      filiere: "Informatique",
+
+    },
+
+    {
+
+      prenom: "Mariem",
+
+      nom: "Khalfallah",
+
+      email: "mariem@example.com",
+
+      telephone: "55123456",
+
+      filiere: "Réseaux",
+
+    },
+
+  ];
+
+  return (
+
+    <div className="app" id="accueil">
+
+      <Header />
+
+      <Navbar />
+
+      <main className="container" id="etudiants">
+
+        <h2 className="titre">Liste des étudiants</h2>
+
+        <div className="student-list">
+
+          {etudiants.map((etudiant) => (
+
+            <StudentCard
+
+              key={etudiant.email}
+
+              prenom={etudiant.prenom}
+
+              nom={etudiant.nom}
+
+              email={etudiant.email}
+
+              telephone={etudiant.telephone}
+
+              filiere={etudiant.filiere}
+
+            />
+
+          ))}
+
         </div>
-        </div>
-    )
+
+      </main>
+
+      <Footer />
+
+    </div>
+
+  );
+
 }
 
-export default app;
+export default App;
+
