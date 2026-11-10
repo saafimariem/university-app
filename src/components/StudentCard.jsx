@@ -1,15 +1,52 @@
-function StudentCard({ prenom, nom, email, telephone, filiere }) {
+
+import { useState } from "react";
+
+function StudentCard({
+  prenom,
+  nom,
+  email,
+  telephone,
+  filiere,
+  annee,
+  photo,
+  onSupprimer,
+  onModifier,
+}) {
+  const [coordonneesVisibles, setCoordonneesVisibles] = useState(false);
+
+  const basculerInformations = () => {
+    setCoordonneesVisibles(!coordonneesVisibles);
+  };
+
   return (
     <div className="student-card">
-      <h2>{prenom} {nom}</h2>
+      <img src={photo} alt={prenom} width="100" />
 
-      <p><strong>Email :</strong> {email}</p>
-      <p><strong>Téléphone :</strong> {telephone}</p>
-      <p><strong>Filière :</strong> {filiere}</p>
+      <h3>{prenom} {nom}</h3>
 
-      <a href={`mailto:${email}`} className="bouton">
-        Contacter
-      </a>
+      <p>Filière : {filiere}</p>
+      <p>Niveau : {annee}</p>
+
+      <button onClick={basculerInformations}>
+        {coordonneesVisibles
+          ? "Masquer les informations"
+          : "Afficher les informations"}
+      </button>
+
+      {coordonneesVisibles && (
+        <div>
+          <p>Email : {email}</p>
+          <p>Téléphone : {telephone}</p>
+        </div>
+      )}
+
+      <button onClick={onModifier}>
+        Modifier
+      </button>
+
+      <button onClick={onSupprimer}>
+        Supprimer
+      </button>
     </div>
   );
 }
